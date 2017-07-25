@@ -1,5 +1,8 @@
 <resources>
     <string name="app_name">Bet Calculator be Dennis
     </string>
-
+    <string name="enterOddsPlease">Enter Selections Odds</string>
+    <string name="Stake">Stake</string>
+    <string name="calculate">Calculate</string>
+    <string name="enterStake">Enter your stake here</string>
 </resources>

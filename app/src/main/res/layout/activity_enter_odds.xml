@@ -14,26 +14,74 @@
         android:text="Back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/backButton"
+        android:layout_marginTop="14dp"
         android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:id="@+id/backButton" />
-
-    <TextView
-        android:text="1 selection"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/backButton"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="65dp"
-        android:id="@+id/textView4" />
+        android:layout_alignEnd="@+id/autoCompleteTextView" />
 
     <AutoCompleteTextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView4"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="22dp"
-        android:layout_marginTop="103dp"
         android:inputType="textAutoComplete"
-        android:id="@+id/autoCompleteTextView" />
+        android:id="@+id/autoCompleteTextView"
+        android:completionHint="Enter the odds here"
+        android:layout_below="@+id/backButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="42dp"
+        android:background="@color/colorWhite"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/backButton"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="13dp"
+        android:layout_marginTop="13dp"
+        android:text="@string/enterOddsPlease"
+        android:id="@+id/enterOdds" />
+
+    <TextView
+        android:text="@string/enterStake"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/textView5"
+        android:contentDescription="this is wher the stake is entered"
+        android:layout_alignBottom="@+id/stake"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="37dp" />
+
+    <TextView
+        android:text="@string/Stake"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="81dp"
+        android:id="@+id/stake"
+        android:inputType="numberDecimal"
+        android:textStyle="normal|bold"
+        android:background="@color/colorWhite"
+        android:textSize="20sp"
+        android:layout_below="@+id/autoCompleteTextView"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:text="@string/calculate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/calculate"
+        android:textStyle="normal|bold"
+        android:contentDescription="to calculate"
+        android:elevation="5dp"
+        android:textSize="16sp"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true"
+        android:onClick="cal" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/calculate"
+        android:layout_marginTop="58dp"
+        android:id="@+id/result"
+        android:textSize="50sp" />
 </RelativeLayout>

@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
+import android.widget.TextView;
 
 public class enterOdds extends AppCompatActivity {
     AutoCompleteTextView oddsPick;
@@ -163,10 +164,12 @@ public class enterOdds extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_enter_odds);
         backbutton();
+        calculate();
         oddsPick = (AutoCompleteTextView)findViewById(R.id.autoCompleteTextView);
         ArrayAdapter adapter=new ArrayAdapter(this,android.R.layout.select_dialog_item,odds);
         oddsPick.setThreshold(1);
         oddsPick.setAdapter(adapter);
+
     }
     public void backbutton(){
         Button back= (Button)findViewById(R.id.backButton);
@@ -178,4 +181,19 @@ public class enterOdds extends AppCompatActivity {
             }
         });
     }
+    public void calculate(){
+        String OddsEntered = oddsPick.getText().toString();
+        double value = Double.parseDouble(OddsEntered);
+        final TextView winnings= (TextView)findViewById(R.id.result);
+        Button calculate = (Button)findViewById(R.id.calculate);
+        calculate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                winnings.setText("Hello");
+            }
+        }
+    }
+
 }
+
+

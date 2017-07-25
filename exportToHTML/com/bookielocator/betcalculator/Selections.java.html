@@ -1,0 +1,70 @@
+<html>
+<head>
+<title>Selections.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.ln { color: rgb(0,0,0); font-weight: normal; font-style: normal; }
+.s0 { color: rgb(0,0,128); font-weight: bold; }
+.s1 { color: rgb(0,0,0); }
+.s2 { color: rgb(128,128,128); font-style: italic; }
+</style>
+</head>
+<BODY BGCOLOR="#ffffff">
+<TABLE CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#C0C0C0" >
+<TR><TD><CENTER>
+<FONT FACE="Arial, Helvetica" COLOR="#000000">
+Selections.java</FONT>
+</center></TD></TR></TABLE>
+<pre>
+<span class="s0">package </span><span class="s1">com.bookielocator.betcalculator; 
+ 
+</span><span class="s0">import </span><span class="s1">android.content.Intent; 
+</span><span class="s0">import </span><span class="s1">android.support.v7.app.AppCompatActivity; 
+</span><span class="s0">import </span><span class="s1">android.os.Bundle; 
+</span><span class="s0">import </span><span class="s1">android.view.View; 
+</span><span class="s0">import </span><span class="s1">android.widget.Button; 
+ 
+</span><span class="s0">import static </span><span class="s1">com.bookielocator.betcalculator.R.id.button1; 
+ 
+</span><span class="s0">public class </span><span class="s1">Selections </span><span class="s0">extends </span><span class="s1">AppCompatActivity { 
+ 
+ 
+ 
+    @Override 
+    </span><span class="s0">protected void </span><span class="s1">onCreate(Bundle savedInstanceState) { 
+        </span><span class="s0">super</span><span class="s1">.onCreate(savedInstanceState); 
+        setContentView(R.layout.activity_selections); 
+        number1(); 
+        number2(); </span><span class="s2">// number 2</span><span class="s1"> 
+    } 
+</span><span class="s0">private void </span><span class="s1">number1() { 
+</span><span class="s2">// this tests the button 1 to go to the singles page</span><span class="s1"> 
+    Button button1 = (Button) findViewById(R.id.button1); </span><span class="s2">// sets up and assigns the button</span><span class="s1"> 
+    button1.setOnClickListener(</span><span class="s0">new </span><span class="s1">View.OnClickListener() {</span><span class="s2">// listens for a click on that button</span><span class="s1"> 
+        @Override 
+        </span><span class="s0">public void </span><span class="s1">onClick(View v) {</span><span class="s2">// this part send it to the next activity</span><span class="s1"> 
+            Intent single = </span><span class="s0">new </span><span class="s1">Intent(Selections.</span><span class="s0">this</span><span class="s1">, enterOdds.</span><span class="s0">class</span><span class="s1">); </span><span class="s2">// selections is this page enterOdds is page 2 which will be changed</span><span class="s1"> 
+            startActivity(single); </span><span class="s2">// starts the new screen</span><span class="s1"> 
+        } 
+    }); 
+} 
+ 
+    </span><span class="s0">private void </span><span class="s1">number2(){ 
+</span><span class="s2">// this tests the button 2 to go to the doubles page</span><span class="s1"> 
+        </span><span class="s0">final </span><span class="s1">Button button1= (Button)findViewById(R.id.button2); </span><span class="s2">// sets up and assigns the button</span><span class="s1"> 
+        button1.setOnClickListener(</span><span class="s0">new </span><span class="s1">View.OnClickListener() {</span><span class="s2">// listens for a click on that button</span><span class="s1"> 
+            @Override 
+            </span><span class="s0">public void </span><span class="s1">onClick(View v) {</span><span class="s2">// this part send it to the next activity</span><span class="s1"> 
+ 
+                Intent single = </span><span class="s0">new </span><span class="s1">Intent(Selections.</span><span class="s0">this</span><span class="s1">, enterOdds2.</span><span class="s0">class</span><span class="s1">); </span><span class="s2">// selections is this page enterOdds is page 2 which will be changed</span><span class="s1"> 
+                startActivity(single); </span><span class="s2">// starts the new screen</span><span class="s1"> 
+            } 
+        }); 
+    } 
+} 
+ 
+ 
+ 
+</span></pre>
+</body>
+</html>

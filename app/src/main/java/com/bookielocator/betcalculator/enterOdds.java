@@ -10,7 +10,9 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.TextView;
 
+
 public class enterOdds extends AppCompatActivity {
+    public TextView stake;
     public static String selectionOdds;
     public AutoCompleteTextView oddsPick;
     public String[] odds = {
@@ -215,35 +217,33 @@ public class enterOdds extends AppCompatActivity {
     }
     public String getthewinnings()
     {
-        Double win = 0.0; // sets up the placeholder for the win
+        double win = 0.0; // sets up the placeholder for the win
+        double staked = 1.00; // sets the default stake to 1.00
+        TextView stake = (TextView) findViewById(R.id.stake); // gets the stake from the screen
+        staked = Double.parseDouble(stake.getText().toString());
+System.out.print(staked);
         selectionOdds = oddsPick.getText().toString();
 
-getDecimalValue(); // send to get the decimal value of the string
+
+
+    win = getDecimalValue(); // send to get the decimal value of the string
+        win *= staked;
 
         @SuppressLint("DefaultLocale") String totalWin$ = String.format ("%.2f", win);
-        return selectionOdds;
+        return totalWin$;
     }
-    public void getDecimalValue(){
+    public double getDecimalValue(){
         // processes ok but i need a way to convert the odds to decimal by deciding top and bottom to complete my work
         // this should find the "/"
 
-        System.out.println("***********************************************"+selectionOdds);
-
         String[] temp; // string version
         double[] tempD = new double[2]; // decimal version
-
         temp = selectionOdds.split("/"); // splits the two at the /
-//System.out.println(temp[0]); // test
-        //System.out.println(temp[1]); // test
-        //System.out.println("***********************************************");
         double topOdds= Double.parseDouble(temp[0]);
         double bottomOdds = Double.parseDouble(temp[1]);
         double odds = topOdds/bottomOdds;
         odds++;
-
-
-        //System.out.println(odds);
-        //System.out.println("***********************************************");
+        return odds;
     }
 }
 

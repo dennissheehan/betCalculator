@@ -1,5 +1,6 @@
 package com.bookielocator.betcalculator;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -159,20 +160,27 @@ public class enterOdds extends AppCompatActivity {
             "27/10",
             "19/10"
     };
+
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_enter_odds);
         backbutton();
         calculate();
-        oddsPick = (AutoCompleteTextView)findViewById(R.id.autoCompleteTextView);
-        ArrayAdapter adapter=new ArrayAdapter(this,android.R.layout.select_dialog_item,odds);
-        oddsPick.setThreshold(1);
-        oddsPick.setAdapter(adapter);
+        oddspicker();
 
     }
-    public void backbutton(){
-        Button back= (Button)findViewById(R.id.backButton);
+    public void oddspicker(){// i put the odds picker in a seperate method
+        oddsPick = (AutoCompleteTextView) findViewById(R.id.autoCompleteTextView);
+        ArrayAdapter<String> adapter;
+        adapter = new ArrayAdapter<>(this, android.R.layout.select_dialog_item, odds);
+        oddsPick.setThreshold(1);
+        oddsPick.setAdapter(adapter);// oddsPick is the holder for the odds of the selection
+
+    }
+
+    public void backbutton() {
+        Button back = (Button) findViewById(R.id.backButton);
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -180,20 +188,28 @@ public class enterOdds extends AppCompatActivity {
                 finish();
             }
         });
+
+
     }
     public void calculate(){
-        String OddsEntered = oddsPick.getText().toString();
-        double value = Double.parseDouble(OddsEntered);
-        final TextView winnings= (TextView)findViewById(R.id.result);
-        Button calculate = (Button)findViewById(R.id.calculate);
-        calculate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                winnings.setText("Hello");
-            }
-        }
-    }
+        Button calc = (Button) findViewById(R.id.calculate);
+        TextView winnings = (TextView) findViewById(R.id.result);
+        winnings.setText("£££$$$€€€");
+        calc.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        TextView winnings = (TextView) findViewById(R.id.result); // needs to get the text again
+                                        // the calculation part
+                                        double totalWin = 0; // sets a placeholder for the winnings
+                                        String odd$ = oddsPick.getText().toString();
+                                        double value = Double.parseDouble(odd$);
+                                        @SuppressLint("DefaultLocale") String totalWin$ = String.format ("%.2f", totalWin);
+                                        winnings.setText(totalWin$); // changes the text to the winnings
+                                    }
+                                }
+        );
 
+    }
 }
 
 

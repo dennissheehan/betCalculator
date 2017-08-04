@@ -11,8 +11,9 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class enterOdds extends AppCompatActivity {
-    AutoCompleteTextView oddsPick;
-    String[] odds = {
+    public static String selectionOdds;
+    public AutoCompleteTextView oddsPick;
+    public String[] odds = {
             "1/1000",
             "1/500",
             "1/250",
@@ -166,9 +167,8 @@ public class enterOdds extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_enter_odds);
         backbutton();
-        calculate();
         oddspicker();
-
+        calculate();
     }
     public void oddspicker(){// i put the odds picker in a seperate method
         oddsPick = (AutoCompleteTextView) findViewById(R.id.autoCompleteTextView);
@@ -176,6 +176,8 @@ public class enterOdds extends AppCompatActivity {
         adapter = new ArrayAdapter<>(this, android.R.layout.select_dialog_item, odds);
         oddsPick.setThreshold(1);
         oddsPick.setAdapter(adapter);// oddsPick is the holder for the odds of the selection
+
+
 
     }
 
@@ -200,15 +202,27 @@ public class enterOdds extends AppCompatActivity {
                                     public void onClick(View v) {
                                         TextView winnings = (TextView) findViewById(R.id.result); // needs to get the text again
                                         // the calculation part
-                                        double totalWin = 0; // sets a placeholder for the winnings
-                                        String odd$ = oddsPick.getText().toString();
-                                        double value = Double.parseDouble(odd$);
-                                        @SuppressLint("DefaultLocale") String totalWin$ = String.format ("%.2f", totalWin);
-                                        winnings.setText(totalWin$); // changes the text to the winnings
+                                        // sends to new method
+
+
+
+
+                                        winnings.setText(getthewinnings()); // changes the text to the winnings
                                     }
                                 }
         );
 
+    }
+    public String getthewinnings()
+    {
+        Double win = 0.0; // sets up the placeholder for the win
+        selectionOdds = oddsPick.getText().toString();
+// processes ok but i need a way to convert the odds to decimal by deciding top and bottom to complete my work
+
+        System.out.println("***********************************************"+selectionOdds);
+
+        @SuppressLint("DefaultLocale") String totalWin$ = String.format ("%.2f", win);
+        return selectionOdds;
     }
 }
 

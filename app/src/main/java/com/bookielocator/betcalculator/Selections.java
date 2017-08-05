@@ -20,7 +20,8 @@ public class Selections extends AppCompatActivity {
         number2(); // number 2
     }
 private void number1() {
-// this tests the button 1 to go to the singles page
+    // this tests the button 1 to go to the singles page
+    // this is my test section .. start with one selection then on to double etc
     Button button1 = (Button) findViewById(R.id.button1); // sets up and assigns the button
     button1.setOnClickListener(new View.OnClickListener() {// listens for a click on that button
         @Override

@@ -179,6 +179,8 @@ public class enterOdds extends AppCompatActivity {
         oddsPick.setThreshold(1);
         oddsPick.setAdapter(adapter);// oddsPick is the holder for the odds of the selection
 
+      
+
 
 
     }

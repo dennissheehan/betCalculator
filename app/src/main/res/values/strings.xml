@@ -5,4 +5,6 @@
     <string name="enterStake">Enter your stake here</string>
     <string name="winnings">Your Winnings !!!</string>
     <string name="enterOdds">Enter the Odds of your selection here</string>
+    <string name="slash">/</string>
+    <string name="back">back</string>
 </resources>
